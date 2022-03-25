@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Dennis C">
+    <meta name="description"
+        content="Checkout page demo project for 'Responsive Web Developer' path at devChallenges.io">
+    <meta name="keywords" content="web development, html, css, Responsive Design, Figma, checkout Page, demo">
+    <title>Checkout</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-wrapper">
+
+    <!-- Modal -->
+    <div id="confirmation-modal-overlay" class="confirmation-modal-overlay"></div>
+    <div id="confirmation-modal" class="confirmation-modal">
+        <p class="confirmation-modal-message">tesgswrg</p>
+        <button class="confirmation-modal-toggle primary inverted" onclick="toggleModal(false)">Ok</button>
+    </div>
+
+    <!-- Header -->
+    <h1 class="heading">Checkout</h1>
+
+    <!-- Form and Cart -->
+    <form id="checkout-form" class="form" novalidate>
+
+        <!-- Cart -->
+        <section class="cart">
+            <div class="cart-item">
+                <img src="/assets/photo1.png" alt="Vintage Backbag" width="269" height="273">
+                <div class="cart-item-text">
+                    <h3>Vintage Backbag</h3>
+                    <div class="cart-item-text-pricing">
+                        <p class="primary">$54.99</p>
+                        <p>$94.99</p>
+                    </div>
+                    <div class="input-group">
+                        <button type="button" onclick="document.getElementById('vintage-backbag').stepUp()"
+                            class="input-icon input-icon--add">
+                            <img src="/assets/add_white_24dp.svg" />
+                        </button>
+                        <button type="button" onclick="document.getElementById('vintage-backbag').stepDown()"
+                            class="input-icon input-icon--remove">
+                            <img src="/assets/remove_white_24dp.svg" />
+                        </button>
+                        <input type="number" min="0" name="quantity" value="1" id="vintage-backbag">
+                    </div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="/assets/photo2.png" alt="Levi Shoes" width="269" height="273">
+                <div class="cart-item-text">
+                    <h3>Levi Shoes</h3>
+                    <div class="cart-item-text-pricing">
+                        <p class="primary">$74.99</p>
+                        <p>$124.99</p>
+                    </div>
+                    <div class="input-group">
+                        <button type="button" onclick="document.getElementById('levi-shoes').stepUp()"
+                            class="input-icon input-icon--add">
+                            <img src="/assets/add_white_24dp.svg" />
+                        </button>
+                        <button type="button" onclick="document.getElementById('levi-shoes').stepDown()"
+                            class="input-icon input-icon--remove">
+                            <img src="/assets/remove_white_24dp.svg" />
+                        </button>
+                        <input type="number" min="0" name="quantity" value="1" id="levi-shoes">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Totals -->
+            <div class="pricing">
+                <div class="pricing-row">
+                    <p>Shipping</p>
+                    <p>$19</p>
+                </div>
+                <div class="pricing-row">
+                    <p>Total</p>
+                    <p>$148.98</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section id="contact-information" class="form-section--primary">
+            <h2>Contact Information</h2>
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <div class="input-field">
+                    <input required type="email" name="email" id="email" placeholder="Enter your email ...">
+                    <object type="image/svg+xml" data="/assets/email_black_24dp.svg" class="input-icon">
+                        <img src="/assets/email_black_24dp.svg" />
+                    </object>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone</label>
+                <div class="input-field">
+                    <input required type="tel" name="phone" id="phone" placeholder="Enter your phone ...">
+                    <object type="image/svg+xml" data="/assets/call_black_24dp.svg" class="input-icon">
+                        <img src="/assets/call_black_24dp.svg" />
+                    </object>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shipping Address -->
+        <section id="shipping-address" class="form-section--primary">
+            <h2>Shipping Address</h2>
+
+            <div class="input-group">
+                <label for="fullname">Full Name</label>
+                <div class="input-field">
+                    <input required type="text" name="fullname" id="fullname" value="Rodney Cotton"
+                        placeholder="Your Full Name">
+                    <object type="image/svg+xml" data="/assets/account_circle_black_24dp.svg" class="input-icon">
+                        <img src="/assets/account_circle_black_24dp.svg" />
+                    </object>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">Address</label>
+                <div class="input-field">
+                    <input required type="text" name="address" id="address" placeholder="Your address ...">
+                    <object type="image/svg+xml" data="/assets/home_black_24dp.svg" class="input-icon">
+                        <img src="/assets/home_black_24dp.svg" />
+                    </object>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="city">City</label>
+                <div class="input-field">
+                    <input required type="text" name="city" id="city" placeholder="Your address ...">
+                    <object type="image/svg+xml" data="/assets/location_city_black_24dp.svg" class="input-icon">
+                        <img src="/assets/location_city_black_24dp.svg" />
+                    </object>
+                </div>
+            </div>
+
+            <!-- Inline fields -->
+            <div class="inline-wrapper">
+
+                <div class="input-group">
+                    <label for="country">Country</label>
+                    <div class="input-field">
+                        <select name="country" id="country">
+                            <option value="none" selected>Your Country</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="US">United States</option>
+                            <option value="It">Italy</option>
+                        </select>
+                        <object type="image/svg+xml" data="/assets/location_city_black_24dp.svg" class="input-icon">
+                            <img src="/assets/location_city_black_24dp.svg" />
+                        </object>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="postalcode">Postal Code</label>
+
+                    <div class="input-field">
+                        <input required type="text" name="postalcode" id="postalcode"
+                            placeholder="Your postal code ...">
+                        <object type="image/svg+xml" data="/assets/markunread_mailbox_black_24dp.svg"
+                            class="input-icon">
+                            <img src="/assets/markunread_mailbox_black_24dp.svg" />
+                        </object>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Save Info Checkbox -->
+        <section class="save-info">
+            <div class="input-group">
+                <input type="checkbox" name="saveinfocheckbox" id="saveinfocheckbox">
+                <label for="saveinfocheckbox">Save this information for next time</label>
+            </div>
+        </section>
+
+        <!-- Submit button -->
+        <section class="submit">
+            <button type="submit" class="primary inverted">Continue</button>
+            </div>
+        </section>
+    </form>
+
+    <!-- Footer -->
+    <footer>
+        <p> created by <b><u>Dennis</u></b> -devChallenges.io</p>
+    </footer>
+
+    <!-- Script -->
+    <script src="formValidation.js"></script>
+</body>
+
+</html>
